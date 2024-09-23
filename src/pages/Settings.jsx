@@ -1,7 +1,10 @@
-import React from 'react'
+import React from "react";
+import { Layout } from "../components/Layout";
 
 export const Settings = () => {
-  return (
-    <div>Settings</div>
-  )
-}
+    return (
+        <Layout>
+            <div>Settings</div>
+        </Layout>
+    );
+};

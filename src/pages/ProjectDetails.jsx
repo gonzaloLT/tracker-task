@@ -2,19 +2,20 @@ import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
 import { ProjectContext } from "../context/ProjectContext";
 import { EpicCard } from "../components/EpicCard";
+import { Layout } from "../components/Layout";
 
 export const ProjectDetails = () => {
     const { projectId } = useParams();
     const { projectsData, loading, epicsData } = useContext(ProjectContext);
 
-    const project = projectsData.find(project => project._id === projectId)
+    const project = projectsData.find((project) => project._id === projectId);
 
     if (!project) {
         return <div>Proyecto no encontrado</div>;
     }
 
     return (
-        <div>
+        <Layout>
             <h1>Detalles del proyecto</h1>
             {loading && <p>Cargando detalles del proyecto...</p>}
 
@@ -35,6 +36,6 @@ export const ProjectDetails = () => {
                         ))}
                 </ul>
             </div>
-        </div>
+        </Layout>
     );
 };
