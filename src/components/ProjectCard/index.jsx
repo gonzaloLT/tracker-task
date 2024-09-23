@@ -1,7 +1,9 @@
 import React from 'react'
 
-export const index = () => {
+export const ProjectCard = ({project}) => {
   return (
-    <div>index</div>
+    <div>
+      <h2>{project.name}</h2>
+    </div>
   )
 }

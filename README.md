@@ -1,4 +1,4 @@
-##Rutas
+**Rutas**
 
 **Home `/`:** Pantalla principal.
 
