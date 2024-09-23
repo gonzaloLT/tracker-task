@@ -1,11 +1,18 @@
 import { createContext, useEffect, useState } from "react";
 import { mockProjects } from "../mocks/mockProjects";
+import { mockEpics } from "../mocks/mockEpics";
+import { mockStories } from "../mocks/mockStories";
+import { mockTasks } from "../mocks/mockTask";
 
 export const ProjectContext = createContext(null);
 
 export const ProjectProvider = ({ children }) => {
     const [projectsData, setProjectsData] = useState([]);
-    const [loading, setLoading] = useState(false);
+    const [epicsData, setEpicsData] = useState([]);
+    const [storiesData, setStoriesData] = useState([]);
+    const [tasksData, setTasksData] = useState([]);
+
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const fetchProjects = async () => {
@@ -13,10 +20,13 @@ export const ProjectProvider = ({ children }) => {
             try {
                 setTimeout(() => {
                     setProjectsData(mockProjects);
-                }, 1000);
+                    setEpicsData(mockEpics);
+                    setStoriesData(mockStories);
+                    setTasksData(mockTasks);
+                    setLoading(false);
+                }, 2000);
             } catch (error) {
                 console.log("Error al obtener los proyectos");
-            } finally {
                 setLoading(false);
             }
         };
@@ -24,7 +34,9 @@ export const ProjectProvider = ({ children }) => {
     }, []);
 
     return (
-        <ProjectContext.Provider value={{projectsData, loading}}>
+        <ProjectContext.Provider
+            value={{ projectsData, loading, epicsData, storiesData, tasksData }}
+        >
             {children}
         </ProjectContext.Provider>
     );
