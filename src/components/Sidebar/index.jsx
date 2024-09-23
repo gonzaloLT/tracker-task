@@ -1,20 +1,21 @@
 import React from 'react'
 import { MenuItem } from '../MenuItem'
+import styles from './sidebar.module.css'
 
 export const Sidebar = ({isOpen, toggleSidebar}) => {
 
 
   return (
-    <div>
+    <div className={`${styles['sidebar']} ${isOpen ? styles['open'] : ''}`}>
       {/* Parte superior */}
-      <div>
-        <h2>Task tracker</h2>
-        <button>X</button>
+      <div className={styles['top-section']}>
+        <h2 className={styles['brand']}>Task tracker</h2>
+        <button className={styles['button-close']} onClick={toggleSidebar}>X</button>
       </div>
 
 
       {/* Parte central */}
-      <nav>
+      <nav className={styles['middle-section']}>
         <ul>
           <MenuItem to={'/'} label={'Inicio'} toggleSidebar={toggleSidebar}/>
           <MenuItem to={'/my-projects'} label={'Mis proyectos'} toggleSidebar={toggleSidebar}/>
@@ -24,7 +25,7 @@ export const Sidebar = ({isOpen, toggleSidebar}) => {
 
 
       {/* Parte inferior */}
-      <div>
+      <div className={styles['bottom-section']}>
           <MenuItem to={'/settings'} label={'Configuraciones'} toggleSidebar={toggleSidebar}/>
       </div>
     </div>

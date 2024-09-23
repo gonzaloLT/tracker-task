@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    color: white;
+    padding: 1rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.menu-button{
+    font-size: 1.8rem;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: white;
+    margin-right: 1rem;
+}
+
+.menu-button:hover {
+    color: #ccc; 
+}
+
+.title{
+    font-size: 1.6rem;
+    margin-left: 1rem; 
+    white-space: nowrap; 
+    overflow: hidden; 
+    flex-grow: 1; 
+    text-align: center;
+}
+
