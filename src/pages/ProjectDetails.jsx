@@ -22,7 +22,7 @@ export const ProjectDetails = () => {
             <p className="description-project-details">
                 Descripcion: {project.description}
             </p>
-            <p className="merbers-project-details">
+            <p className="members-project-details">
                 Miembros en este proyecto: {project.members.join(", ")}
             </p>
             <div className="epicas-project-details">

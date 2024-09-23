@@ -1,20 +1,19 @@
-.project-card {
-    padding: 20px;
-    margin: 10px;
+.epic-card{
+    padding: 10px;
+    margin: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
     text-align: center;
     background-color: #f9f9f9;
     transition: background-color 0.3s;
-    text-decoration: none;
 }
 
-.project-card:hover {
+.epic-card:hover {
     background-color: #e0e0e0;
     cursor: pointer;
 }
 
-.project-link{
+.epic-link{
     text-decoration: none;
     color: inherit;
 }

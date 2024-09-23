@@ -4,7 +4,7 @@ import styles from './projectCard.module.css'
 
 export const ProjectCard = ({project}) => {
   return (
-    <Link to={`/my-projects/${project._id}`} style={{ textDecoration: 'none' }}>
+    <Link to={`/my-projects/${project._id}`} className={styles['project-link']}>
         <div className={styles['project-card']}>
             <h2>{project.name}</h2>
         </div>
