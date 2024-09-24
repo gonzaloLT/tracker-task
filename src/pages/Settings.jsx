@@ -4,7 +4,7 @@ import { Layout } from "../components/Layout";
 export const Settings = () => {
     return (
         <Layout>
-            <div>Settings</div>
+            <div>Settings: esta pagina aun esta en proceso de desarrollo</div>
         </Layout>
     );
 };

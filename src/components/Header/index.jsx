@@ -12,7 +12,7 @@ export const Header = () => {
     return (
         <header className={styles["header"]}>
             <div className={styles["menu-button"]} onClick={toggleSidebar}>☰</div>
-            <h1 className={styles["title"]}>Task traker</h1>
+            <h1 className={styles["title"]}>Task tracker</h1>
             <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar}/>
         </header>
     );
