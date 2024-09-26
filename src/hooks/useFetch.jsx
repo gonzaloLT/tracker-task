@@ -9,8 +9,11 @@ function useFetch(url, option) {
         const fetchData = async()=>{
             try {
                 const response = await fetch(url, option)
-                const data = await response.json();
-                setData(data);
+                if(!response.ok) {
+                    throw new Error(`Error: ${response.status} ${response.statusText}`);
+                }
+                const result = await response.json();
+                setData(result);
             } catch (error) {
                 setError(error)
             } finally{
@@ -18,8 +21,8 @@ function useFetch(url, option) {
             }
         }
         fetchData()
-    }, [url, option])
-    
+    }, [url])
+
     return {data, loading, error};
 }
 
