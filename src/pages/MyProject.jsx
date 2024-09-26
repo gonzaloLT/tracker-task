@@ -4,6 +4,7 @@ import { ProjectCard } from "../components/ProjectCard";
 import { Layout } from "../components/Layout";
 
 export const Project = () => {
+
     const { projectsData, loading } = useContext(ProjectContext);
 
     return (

@@ -1,7 +1,1 @@
-import React from 'react'
-
-export const storiesApi = () => {
-  return (
-    <div>storiesApi</div>
-  )
-}
+const API_URL = 'https://lamansysfaketaskmanagerapi.onrender.com/api/stories'

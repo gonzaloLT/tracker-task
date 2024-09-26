@@ -1,7 +1,1 @@
-import React from 'react'
-
-export const usersApi = () => {
-  return (
-    <div>usersApi</div>
-  )
-}
+const API_URL = 'https://lamansysfaketaskmanagerapi.onrender.com/api/users'

@@ -1,7 +1,1 @@
-import React from 'react'
-
-export const epicsApi = () => {
-  return (
-    <div>epicsApi</div>
-  )
-}
+const API_URL = 'https://lamansysfaketaskmanagerapi.onrender.com/api/epics';
