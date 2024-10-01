@@ -1,37 +1,19 @@
 import React from 'react';
 import { ProjectCard } from '../components/ProjectCard';
 import { Layout } from '../components/Layout';
-import useFetch from '../hooks/useFetch';
 import { TOKEN } from '../TOKEN';
+import { useFetchProjects } from '../hooks/useFetchProjects';
 
 export const Project = () => {
-        
-    const {
-        data: projectsData,
-        loading: projectsLoading,
-        error: projectsError,
-    } = useFetch(
-        'https://lamansysfaketaskmanagerapi.onrender.com/api/projects',
-        {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                auth: TOKEN,
-            },
-        }
-    );
+    const {data: projects, loading: loadingProjects} = useFetchProjects(TOKEN);
 
-    const projects = projectsData?.data || [];
-    
     return (
         <Layout>
             <h1>Mis proyectos</h1>
             <div>
-                {projectsLoading ? (
+                {loadingProjects ? (
                     <p>Cargando proyectos...</p>
-                ) : projectsError ? (
-                    <p> Error al cargar los proyectos: { projectsError.message} </p>
-                ) : projects.length > 0 ? (
+                ) : projects && projects.length > 0 ? (
                     projects.map((project) => (
                         <ProjectCard key={project._id} project={project} />
                     ))
@@ -42,3 +24,8 @@ export const Project = () => {
         </Layout>
     );
 };
+
+
+/*  : projectsError ? (
+                    <p> Error al cargar los proyectos: { projectsError.message} </p>
+                ) */
