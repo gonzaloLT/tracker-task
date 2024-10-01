@@ -7,14 +7,10 @@ import useFetch from '../hooks/useFetch';
 import { TOKEN } from '../TOKEN';
 
 export const ProjectDetails = () => {
-    const url = 'https://lamansysfaketaskmanagerapi.onrender.com/api/projects';
     const { projectId } = useParams();
+    const url = `https://lamansysfaketaskmanagerapi.onrender.com/api/projects/${projectId}`;
 
-    const {
-        data: projectData,
-        loading: projectLoading,
-        error: projectError,
-    } = useFetch(`${url}/${projectId}`, {
+    const { data: projectData, loading: projectLoading,error: projectError,} = useFetch(url, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -22,6 +18,14 @@ export const ProjectDetails = () => {
         },
     });
 
+
+    // const { data: epicsData, loading: epicsLoading, error: epicsError } = useFetch(urlEpics, {
+    //     method: 'GET',
+    //     headers: {
+    //         'Content-Type': 'application/json',
+    //         auth: TOKEN,
+    //     },
+    // });
     const { epicsData } = useContext(ProjectContext);
 
     const project = projectData?.data || null;
@@ -32,7 +36,10 @@ export const ProjectDetails = () => {
             {projectLoading ? (
                 <p>Cargando detalles del proyecto...</p>
             ) : projectError ? (
-                <p>Error al cargar los detalles del proyecto: {projectError.message}</p>
+                <p>
+                    Error al cargar los detalles del proyecto:{' '}
+                    {projectError.message}
+                </p>
             ) : project ? (
                 <>
                     <h2 className='name-project-details'>{project.name}</h2>
