@@ -6,6 +6,7 @@ import { MyStory } from "../pages/MyStory";
 import { Epic } from "../pages/Epic";
 import { Story } from "../pages/Story";
 import { Settings } from "../pages/Settings";
+import { Login } from '../pages/Login';
 
 const router = createBrowserRouter([
     {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
         path: "/settings",
         element: <Settings />,
     },
+    {
+        path: "/login",
+        element: <Login />
+    }
 ]);
 
 export default router;

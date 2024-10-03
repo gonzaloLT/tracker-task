@@ -1,34 +1,41 @@
 import React, { useContext } from "react";
 import { Layout } from "../components/Layout";
-import { ProjectContext } from "../context/ProjectContext";
 import { useParams } from "react-router-dom";
 import { StoryCard } from "../components/StoryCard";
+import { useFetchEpics } from "../hooks/useFetchEpics";
+import { useFetchEpicsById } from "../hooks/useFetchEpicsById";
+import { useFetchStoriesEpic } from "../hooks/useFetchStoriesEpic";
 
 export const Epic = () => {
-    const { epicId, projectId } = useParams();
-    const { epicsData, storiesData, loading } = useContext(ProjectContext);
+    const { epicId } = useParams();
+    const { data: epic, loading: loadingEpics } = useFetchEpicsById(epicId)
+    const { data: stories, loading: loadingStories } = useFetchStoriesEpic(epicId)
+    console.log(epic)
+    console.log('stories', stories)
 
-    const epic = epicsData.find((epic) => epic._id === epicId);
 
-    if (!epic) {
-        return <div>Epica no encontrada</div>;
-    }
 
     return (
         <Layout>
-            <h1>Detalles de la epica</h1>
-            {loading && <p>Cargando detalles de la epica</p>}
-            <h2>{epic.name}</h2>
-            <p>Descripcion: {epic.description}</p>
-            <p>Icono: {epic.icon}</p>
-            <h3>Historias</h3>
-            <ul>
-                {storiesData
-                    .filter((story) => story.epic === epicId)
-                    .map((story) => (
-                        <StoryCard key={story._id} story={story} epicId={epicId} projectId={projectId} />
-                    ))}
-            </ul>
+            <h1>Detalles de epica</h1>
+            {loadingEpics ? <p>Cargando detalles de epica...</p> :
+                <div>
+                    <div className="details">
+                        <h2>{epic.name} {epic.icon}</h2>
+                        <p><b>Descripcion:</b> {epic.description}</p>
+                    </div>
+                    <div className="stories">
+                        {loadingStories ? <p>Cargando historias...</p> : 
+                            <ul>
+                                {stories.map(story => 
+                                    <StoryCard key={story._id} story={story}/>
+                                )}
+                            </ul>
+                        }
+                    </div>
+                </div>
+
+            }
         </Layout>
-    );
+    )
 };

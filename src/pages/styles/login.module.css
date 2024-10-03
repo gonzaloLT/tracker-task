@@ -1,0 +1,84 @@
+/* login.module.css */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to right, #4a90e2, #9013fe); /* Fondo degradado */
+    padding: 20px; /* Añadido para móviles */
+}
+
+.loginBox {
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 40px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.title {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.inputGroup {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.inputField {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.loginButton {
+    background-color: #9013fe;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+}
+
+.loginButton:hover {
+    background-color: #7e1f9c; /* Color morado más oscuro al pasar el mouse */
+}
+
+.error {
+    color: red;
+    margin-bottom: 15px;
+}
+
+/* Media Queries para responsividad */
+@media (max-width: 600px) {
+    .loginBox {
+        padding: 20px;
+    }
+
+    .title {
+        font-size: 24px;
+    }
+
+    .inputField {
+        font-size: 14px;
+    }
+
+    .loginButton {
+        font-size: 16px;
+    }
+}
+
+
+
+
+
+  
+  

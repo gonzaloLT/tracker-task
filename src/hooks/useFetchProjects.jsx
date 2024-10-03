@@ -2,14 +2,14 @@ import { useEffect, useState } from "react"
 import { getProjects } from "../helpers/getProjects"
 
 
-export const useFetchProjects = (TOKEN) => {
+export const useFetchProjects = () => {
 	const [state, setState] = useState({
 		data: [],
 		loading: true
 	})
 
 	useEffect(() => {
-		getProjects(TOKEN)
+		getProjects()
 			.then(projects => {
 				setState({
 					data: projects,

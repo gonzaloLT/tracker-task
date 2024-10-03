@@ -1,11 +1,10 @@
 import React from 'react';
 import { ProjectCard } from '../components/ProjectCard';
 import { Layout } from '../components/Layout';
-import { TOKEN } from '../TOKEN';
 import { useFetchProjects } from '../hooks/useFetchProjects';
 
 export const Project = () => {
-    const {data: projects, loading: loadingProjects} = useFetchProjects(TOKEN);
+    const {data: projects, loading: loadingProjects} = useFetchProjects();
 
     return (
         <Layout>
@@ -24,8 +23,3 @@ export const Project = () => {
         </Layout>
     );
 };
-
-
-/*  : projectsError ? (
-                    <p> Error al cargar los proyectos: { projectsError.message} </p>
-                ) */

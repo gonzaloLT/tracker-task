@@ -1,68 +1,62 @@
-import React, { useContext } from 'react';
+import React, { useMemo } from 'react';
 import { useParams } from 'react-router-dom';
-import { ProjectContext } from '../context/ProjectContext';
 import { EpicCard } from '../components/EpicCard';
 import { Layout } from '../components/Layout';
-import useFetch from '../hooks/useFetch';
-import { TOKEN } from '../TOKEN';
+import { useFetchProjectsById } from '../hooks/useFetchProjectsById';
+import { useFetchUsersById } from '../hooks/useFetchUsersById';
+import { useFetchEpics } from '../hooks/useFetchEpics';
 
 export const ProjectDetails = () => {
     const { projectId } = useParams();
-    const url = `https://lamansysfaketaskmanagerapi.onrender.com/api/projects/${projectId}`;
+    const { data: project, loading: loadingProject } = useFetchProjectsById(projectId);
 
-    const { data: projectData, loading: projectLoading,error: projectError,} = useFetch(url, {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-            auth: TOKEN,
-        },
-    });
+    const membersIds = useMemo(() => {
+        return project && project.members ? project.members : [];
+    }, [project]);
+    
+    const { data: owner, loading: loadingOwner } = useFetchUsersById(project?.owner)
 
+    const { data: members, loading: loadingMembers } = useFetchUsersById(membersIds)
 
-    // const { data: epicsData, loading: epicsLoading, error: epicsError } = useFetch(urlEpics, {
-    //     method: 'GET',
-    //     headers: {
-    //         'Content-Type': 'application/json',
-    //         auth: TOKEN,
-    //     },
-    // });
-    const { epicsData } = useContext(ProjectContext);
-
-    const project = projectData?.data || null;
+    const { data: epics, loading: loadingEpics } = useFetchEpics(projectId)
 
     return (
         <Layout>
             <h1>Detalles del proyecto</h1>
-            {projectLoading ? (
-                <p>Cargando detalles del proyecto...</p>
-            ) : projectError ? (
-                <p>
-                    Error al cargar los detalles del proyecto:{' '}
-                    {projectError.message}
-                </p>
-            ) : project ? (
-                <>
-                    <h2 className='name-project-details'>{project.name}</h2>
-                    <p className='description-project-details'>
-                        Descripcion: {project.description}
-                    </p>
-                    <p className='members-project-details'>
-                        Miembros en este proyecto: {project.members.join(', ')}
-                    </p>
-                    {/* <div className='epicas-project-details'>
-                        <h3>Epicas</h3>
-                        <ul>
-                            {epicsData
-                                .filter((epic) => epic.project === projectId)
-                                .map((epic) => (
-                                    <EpicCard key={epic._id} epic={epic} />
-                                ))}
-                        </ul>
-                    </div> */}
-                </>
-            ) : (
-                <p>No existe el proyecto</p>
-            )}
+            {loadingProject ? <p>Cargando detalles del proyecto </p> :
+                <div>
+                    <div className='details'>
+                        <h2>{project.name} {project.icon}</h2>
+                        <p><b>Descripcion:</b> {project.description}</p>
+                        <b>Propietario:</b>
+                        {loadingOwner ? 'Cargando propietario...' :
+                            owner && owner.length > 0 && owner[0]?.name
+                                ? `${owner[0].name.first} ${owner[0].name.last}`
+                                : 'No se encontró al propietario'
+                        }
+                    </div>
+                    <div className='members'>
+                        <h3>Miembros</h3>
+                        {loadingMembers ? <p>Cargando miembros...</p> :
+                            members && members.length > 0 ?
+                                <ul>
+                                    {members.map(member => <li key={member._id}>{member.name.first} {member.name.last}</li>)}
+                                </ul>
+                                : <p>No hay miembros en este proyecto</p>
+                        }
+                    </div>
+                    <div className='epics'>
+                        <h3>Epicas del proyecto</h3>
+                        {loadingEpics ? <p>Cargando epicas...</p> :
+                        epics && epics.length > 0 ? 
+                            <ul>
+                                {epics.map(epic => <EpicCard key={epic._id} epic={epic}></EpicCard>)}
+                            </ul>
+                            : <p>Este projecto no tiene epicas</p>
+                        }
+                    </div>
+                </div>
+            }
         </Layout>
     );
 };
