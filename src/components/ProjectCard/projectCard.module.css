@@ -1,41 +1,40 @@
-.project-card {
-    background-color: var(--card-bg-color);
-    border-radius: var(--card-border-radius);
-    box-shadow: var(--card-shadow);
-    padding: 1.5rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-}
-
-.project-card h3 {
-    color: var(--primary-color);
-    margin-bottom: 0.5rem;
-    font-size: 1.5rem;
-}
-
-.project-card p {
-    color: var(--text-color);
-    margin-bottom: 0.5rem;
-    line-height: 1.5;
-}
-
-.project-card a {
-    color: var(--secondary-color);
+/* Enlace de la tarjeta de proyecto */
+.project-link {
     text-decoration: none;
+    color: inherit;
+  }
+  
+  /* Estilos de la tarjeta de proyecto */
+  .project-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra clara */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .project-card:hover {
+    transform: translateY(-5px); /* Leve elevación al hacer hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Sombra más profunda en hover */
+  }
+  
+  /* Título del proyecto */
+  .project-title {
+    font-size: 1.6rem;
     font-weight: bold;
-}
-
-.project-card a:hover {
-    text-decoration: underline;
-}
-
-.project-title {
-    color: var(--primary-color);
+    color: #2d3748; /* Gris oscuro */
+    text-align: center;
     margin-bottom: 0.5rem;
-    font-size: 1.5rem;
-    text-decoration: none; /* Quitar el subrayado del título */
-}
+  }
+  
+  /* Ajustes para pantallas pequeñas */
+  @media (max-width: 768px) {
+    .project-card {
+      padding: 1rem;
+    }
+  
+    .project-title {
+      font-size: 1.4rem;
+    }
+  }
+  

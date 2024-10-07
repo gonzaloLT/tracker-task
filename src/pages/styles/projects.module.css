@@ -1,35 +1,54 @@
-:root {
-    --primary-color: #023e8a; /* Azul oscuro */
-    --secondary-color: #ff6f61; /* Coral suave */
-    --background-color: #f8f9fa; /* Gris claro */
-    --text-color: #333;
-    --card-bg-color: #fff;
-    --card-border-radius: 12px;
-    --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.container {
-    padding: 2rem;
-    background-color: var(--background-color);
-    min-height: 100vh;
-}
-
-.header-title {
-    color: var(--primary-color);
-    margin-bottom: 1.5rem;
-    font-size: 2rem;
-}
-
+/* Contenedor de la lista de proyectos */
 .projects-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-}
-
-.loading-message,
-.no-projects-message {
-    color: var(--primary-color);
-    font-size: 1.2rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    background-color: #f4f5f7; /* Fondo consistente con otros componentes */
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Sombra suave */
+  }
+  
+  /* Título principal */
+  .header-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #1f2937; /* Gris oscuro */
     text-align: center;
-    margin-top: 2rem;
-}
+    margin-bottom: 2rem;
+    letter-spacing: -0.5px;
+    border-bottom: 2px solid #3182ce; /* Barra subrayada azul */
+    padding-bottom: 0.5rem;
+  }
+  
+  /* Mensaje de carga */
+  .loading-message {
+    font-size: 1.4rem;
+    color: #2b6cb0; /* Azul para consistencia */
+    text-align: center;
+  }
+  
+  /* Mensaje de "no hay proyectos" */
+  .no-projects-message {
+    font-size: 1.3rem;
+    color: #a0aec0;
+    text-align: center;
+  }
+  
+  /* Ajustes responsivos */
+  @media (max-width: 768px) {
+    .projects-list {
+      grid-template-columns: 1fr;
+      padding: 1rem;
+    }
+  
+    .header-title {
+      font-size: 2rem;
+    }
+  
+    .loading-message,
+    .no-projects-message {
+      font-size: 1.2rem;
+    }
+  }
+  

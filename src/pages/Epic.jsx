@@ -5,6 +5,7 @@ import { StoryCard } from "../components/StoryCard";
 import { useFetchEpics } from "../hooks/useFetchEpics";
 import { useFetchEpicsById } from "../hooks/useFetchEpicsById";
 import { useFetchStoriesEpic } from "../hooks/useFetchStoriesEpic";
+import styles from './styles/epic.module.css'
 
 export const Epic = () => {
     const { epicId } = useParams();
@@ -17,24 +18,24 @@ export const Epic = () => {
 
     return (
         <LayoutDefault>
-            <h1>Detalles de epica</h1>
-            {loadingEpics ? <p>Cargando detalles de epica...</p> :
+             <h1 className={styles['title']}>Detalles de épica</h1>
+            {loadingEpics ? <p className={styles['loading']}>Cargando detalles de épica...</p> :
                 <div>
-                    <div className="details">
+                    <div className={styles['details']}>
                         <h2>{epic.name} {epic.icon}</h2>
-                        <p><b>Descripcion:</b> {epic.description}</p>
+                        <p><b>Descripción:</b> {epic.description}</p>
                     </div>
-                    <div className="stories">
-                        {loadingStories ? <p>Cargando historias...</p> : 
+                    <div className={styles['stories']}>
+                        <h2>Historias</h2>
+                        {loadingStories ? <p className={styles['loading']}>Cargando historias...</p> : 
                             <ul>
                                 {stories.map(story => 
-                                    <StoryCard key={story._id} story={story}/>
+                                    <StoryCard key={story._id} story={story} epicId={epicId}/>
                                 )}
                             </ul>
                         }
                     </div>
                 </div>
-
             }
         </LayoutDefault>
     )

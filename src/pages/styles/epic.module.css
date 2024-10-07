@@ -1,0 +1,63 @@
+/* Contenedor principal de los detalles de la épica */
+.details {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  }
+  
+  /* Título de la épica */
+  h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #2d3748; /* Gris oscuro */
+    text-align: center;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #3182ce; /* Subrayado azul */
+    padding-bottom: 0.5rem;
+  }
+  
+  /* Nombre de la épica */
+  h2 {
+    font-size: 2rem;
+    color: #1f2937; /* Gris oscuro */
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Descripción de la épica */
+  .details p {
+    font-size: 1.2rem;
+    color: #4a5568; /* Gris medio */
+    margin-bottom: 1rem;
+  }
+  
+  /* Contenedor de las historias */
+  .stories {
+    background-color: #f7fafc;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Sombra ligera */
+  }
+  
+  /* Ajustes responsivos */
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 2rem;
+    }
+  
+    h2 {
+      font-size: 1.8rem;
+    }
+  
+    .details p {
+      font-size: 1.1rem;
+    }
+  
+    .stories {
+      padding: 1rem;
+    }
+  }
+  

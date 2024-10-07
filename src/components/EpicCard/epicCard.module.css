@@ -1,19 +1,54 @@
-.epic-card{
-    padding: 10px;
-    margin: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    text-align: center;
-    background-color: #f9f9f9;
-    transition: background-color 0.3s;
-}
-
-.epic-card:hover {
-    background-color: #e0e0e0;
-    cursor: pointer;
-}
-
-.epic-link{
+/* Enlace de la tarjeta */
+.epic-link {
     text-decoration: none;
     color: inherit;
-}
+  }
+  
+  /* Estilos de la tarjeta de épica */
+  .epic-card {
+    background-color: #edf2f7; /* Gris muy claro */
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Sombra más marcada */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .epic-card:hover {
+    transform: translateY(-7px); /* Efecto de elevación */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /* Más sombra al hover */
+  }
+  
+  /* Nombre de la épica */
+  .name-epica {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #2d3748; /* Gris oscuro */
+    margin-bottom: 0.8rem;
+  }
+  
+  /* Descripción de la épica */
+  .description-epica {
+    font-size: 1.3rem;
+    color: #4a5568;
+    margin-bottom: 1rem;
+  }
+  
+  /* Icono de la épica */
+  .icon-epica {
+    font-size: 1.3rem;
+    color: #3182ce; /* Azul para los iconos */
+  }
+  
+  /* Ajustes para dispositivos móviles */
+  @media (max-width: 768px) {
+    .epic-card {
+      padding: 1rem;
+    }
+  
+    .name-epica, .description-epica, .icon-epica {
+      font-size: 1.2rem;
+    }
+  }
+  
+  
