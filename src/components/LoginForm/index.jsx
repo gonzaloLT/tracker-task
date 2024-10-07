@@ -3,21 +3,21 @@ import styles from './loginform.module.css';
 import { useAuth } from '../../auth/AuthProvider';
 
 export const LoginForm = () => {
+    const { login } = useAuth()
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const [error, setError] = useState(null);
+    const [error, setError] = useState('');
 
-    const { login } = useAuth()
 
     const handleSubmit = async (e) => {
-        e.preventDefault()
+        e.preventDefault();
         try {
-            setError(null)
-            await login(username, password)
-        } catch (error) {
-            setError('Credenciales no validas, intenta de nuevo')
+            await login(username, password);
+            setError('');
+        } catch (err) {
+            setError('Error al iniciar sesión. Por favor verifica tus credenciales.');
         }
-    }
+    };
 
     return (
         <div className={styles.formContainer}>
@@ -42,7 +42,9 @@ export const LoginForm = () => {
                     className={styles.inputPassword}
                 />
 
-                <button type='submit' className={styles.button}>Iniciar sesion</button>
+                <button type='submit' className={styles.button}>
+                    Iniciar sesion
+                </button>
             </form>
 
         </div>

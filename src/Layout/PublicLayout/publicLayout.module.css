@@ -38,6 +38,10 @@
   margin-right: 1rem;
 }
 
+.link{
+  text-decoration: none;
+}
+
 .nav {
   display: flex;
   align-items: center;

@@ -13,8 +13,9 @@ export const PublicLayout = ({ children }) => {
         <div className={styles["layout-container"]}>
         <header className={styles['header']}>
             <div className={styles['logo-container']}>
-                <img src="" alt="logo" className={styles['logo']} />
-                <h1>Task Tracker</h1>
+                <Link to={'/'} className={styles['link']}>
+                    <h1 >Task Tracker</h1>
+                </Link>
             </div>
 
             <nav className={styles['nav']}>
