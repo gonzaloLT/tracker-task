@@ -14,7 +14,7 @@ export const PublicLayout = ({ children }) => {
         <header className={styles['header']}>
             <div className={styles['logo-container']}>
                 <Link to={'/'} className={styles['link']}>
-                    <h1 >Task Tracker</h1>
+                    <h1 className={styles['title-logo']}>Task Tracker</h1>
                 </Link>
             </div>
 

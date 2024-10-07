@@ -1,9 +1,9 @@
 :root {
-    --primary-color: #0077b6; /* Azul moderno */
-    --secondary-color: #023e8a; /* Azul oscuro */
+    --primary-color: #0077b6;
+    --secondary-color: #023e8a;
     --text-color: #333;
     --background-color: #f9f9f9;
-    --accent-color: #ff6f61; /* Coral suave para acentos */
+    --accent-color: #ff6f61;
     --card-background: #ffffff;
     --shadow-color: rgba(0, 0, 0, 0.1);
     --cta-button-color: #ff6f61;
@@ -62,7 +62,7 @@
 }
 
 .ctaSection {
-    padding: 2rem;
+    padding: 3rem 1rem;
     text-align: center;
     background-color: var(--secondary-color);
     color: white;
@@ -71,6 +71,7 @@
 .ctaSection h2 {
     font-size: 2rem;
     margin-bottom: 1rem;
+    color: rgb(28, 28, 28);
 }
 
 .ctaSection p {
@@ -84,6 +85,7 @@
     border: none;
     padding: 0.75rem 1.5rem;
     border-radius: 5px;
+    font-size: 1rem;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
@@ -113,3 +115,15 @@
 .footer .socialMedia a:hover {
     text-decoration: underline;
 }
+
+@media (max-width: 768px) {
+    .featuresGrid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .ctaSection {
+        padding: 2rem 1rem;
+    }
+}
+

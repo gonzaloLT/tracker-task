@@ -9,18 +9,22 @@ export const Home = () => {
                 <h2>Características principales</h2>
                 <div className={styles.featuresGrid}>
                     <div className={styles.featureItem}>
+                        <i className="fas fa-project-diagram"></i>
                         <h3>Proyectos</h3>
                         <p>Crea y organiza proyectos completos.</p>
                     </div>
                     <div className={styles.featureItem}>
+                        <i className="fas fa-layer-group"></i>
                         <h3>Épicas</h3>
                         <p>Divide tus proyectos en épicas manejables.</p>
                     </div>
                     <div className={styles.featureItem}>
+                        <i className="fas fa-tasks"></i>
                         <h3>Historias</h3>
                         <p>Gestiona historias para un seguimiento detallado.</p>
                     </div>
                     <div className={styles.featureItem}>
+                        <i className="fas fa-check-circle"></i>
                         <h3>Tareas</h3>
                         <p>Asigna tareas a cada historia para mayor control.</p>
                     </div>

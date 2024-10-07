@@ -38,6 +38,9 @@
   margin-right: 1rem;
 }
 
+.title-logo{
+  color: rgb(28, 28, 28);
+}
 .link{
   text-decoration: none;
 }
