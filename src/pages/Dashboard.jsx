@@ -1,10 +1,11 @@
 import React from "react";
 import { LayoutDefault } from "../Layout/LayoutDefault";
 
-export const MyStory = () => {
+export const Dashboard = () => {
     return (
         <LayoutDefault>
-            <div>Mis historias: esta pagina aun esta en proceso de desarrollo</div>
+            <h1>Inicio</h1>
+            <p>Esta pagina aun esta en proceso de desarrollo</p>
         </LayoutDefault>
     );
 };

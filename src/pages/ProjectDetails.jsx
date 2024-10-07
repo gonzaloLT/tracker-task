@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { useParams } from 'react-router-dom';
 import { EpicCard } from '../components/EpicCard';
-import { Layout } from '../components/Layout';
+import { LayoutDefault } from "../Layout/LayoutDefault";
 import { useFetchProjectsById } from '../hooks/useFetchProjectsById';
 import { useFetchUsersById } from '../hooks/useFetchUsersById';
 import { useFetchEpics } from '../hooks/useFetchEpics';
@@ -21,7 +21,7 @@ export const ProjectDetails = () => {
     const { data: epics, loading: loadingEpics } = useFetchEpics(projectId)
 
     return (
-        <Layout>
+        <LayoutDefault>
             <h1>Detalles del proyecto</h1>
             {loadingProject ? <p>Cargando detalles del proyecto </p> :
                 <div>
@@ -57,6 +57,6 @@ export const ProjectDetails = () => {
                     </div>
                 </div>
             }
-        </Layout>
+        </LayoutDefault>
     );
 };

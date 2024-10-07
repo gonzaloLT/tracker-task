@@ -1,11 +1,11 @@
 import React from "react";
-import { Layout } from "../components/Layout";
+import { PublicLayout } from "../Layout/PublicLayout";
 
 export const Home = () => {
     return (
-        <Layout>
+        <PublicLayout>
             <h1>Inicio</h1>
             <p>Esta pagina aun esta en proceso de desarrollo</p>
-        </Layout>
+        </PublicLayout>
     );
 };

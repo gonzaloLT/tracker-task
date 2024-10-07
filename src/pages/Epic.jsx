@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Layout } from "../components/Layout";
+import { LayoutDefault } from "../Layout/LayoutDefault";
 import { useParams } from "react-router-dom";
 import { StoryCard } from "../components/StoryCard";
 import { useFetchEpics } from "../hooks/useFetchEpics";
@@ -16,7 +16,7 @@ export const Epic = () => {
 
 
     return (
-        <Layout>
+        <LayoutDefault>
             <h1>Detalles de epica</h1>
             {loadingEpics ? <p>Cargando detalles de epica...</p> :
                 <div>
@@ -36,6 +36,6 @@ export const Epic = () => {
                 </div>
 
             }
-        </Layout>
+        </LayoutDefault>
     )
 };

@@ -1,10 +1,10 @@
 import React from "react";
-import { Layout } from "../components/Layout";
+import { LayoutDefault } from "../Layout/LayoutDefault";
 
 export const Settings = () => {
     return (
-        <Layout>
+        <LayoutDefault>
             <div>Settings: esta pagina aun esta en proceso de desarrollo</div>
-        </Layout>
+        </LayoutDefault>
     );
 };

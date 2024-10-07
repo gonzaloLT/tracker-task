@@ -1,13 +1,13 @@
 import React from 'react';
 import { ProjectCard } from '../components/ProjectCard';
-import { Layout } from '../components/Layout';
+import { LayoutDefault } from "../Layout/LayoutDefault";
 import { useFetchProjects } from '../hooks/useFetchProjects';
 
 export const Project = () => {
     const {data: projects, loading: loadingProjects} = useFetchProjects();
 
     return (
-        <Layout>
+        <LayoutDefault>
             <h1>Mis proyectos</h1>
             <div>
                 {loadingProjects ? (
@@ -20,6 +20,6 @@ export const Project = () => {
                     <p>No hay proyectos</p>
                 )}
             </div>
-        </Layout>
+        </LayoutDefault>
     );
 };

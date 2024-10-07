@@ -1,8 +1,8 @@
 import React from "react";
-import {Header} from '../Header'
+import {Header} from '../../components/Header'
 import styles from "./layout.module.css";
 
-export const Layout = ({ children }) => {
+export const LayoutDefault = ({ children }) => {
     return (
         <div className={styles["layout-container"]}>
             <Header />
