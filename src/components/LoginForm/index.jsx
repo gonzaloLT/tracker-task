@@ -30,7 +30,7 @@ export const LoginForm = () => {
                     className={styles.inputPassword}
                 />
 
-                <button className={styles.button}>Login</button>
+                <button className={styles.button}>Iniciar sesion</button>
             </form>
 
         </div>

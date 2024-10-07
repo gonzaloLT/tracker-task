@@ -2,6 +2,7 @@ import React from 'react';
 import { ProjectCard } from '../components/ProjectCard';
 import { LayoutDefault } from "../Layout/LayoutDefault";
 import { useFetchProjects } from '../hooks/useFetchProjects';
+import styles from './styles/projects.module.css'
 
 export const Project = () => {
     const {data: projects, loading: loadingProjects} = useFetchProjects();

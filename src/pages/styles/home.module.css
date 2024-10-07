@@ -1,7 +1,115 @@
-.home-container {
-    padding-top: 4rem;
+:root {
+    --primary-color: #0077b6; /* Azul moderno */
+    --secondary-color: #023e8a; /* Azul oscuro */
+    --text-color: #333;
+    --background-color: #f9f9f9;
+    --accent-color: #ff6f61; /* Coral suave para acentos */
+    --card-background: #ffffff;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --cta-button-color: #ff6f61;
+    --cta-button-hover: #ff4f40;
+    --card-border-radius: 12px;
 }
 
-.content {
+.featuresSection {
+    padding: 3rem 1rem;
+    background-color: var(--background-color);
+    text-align: center;
+}
+
+.featuresSection h2 {
+    font-size: 2.2rem;
+    color: var(--secondary-color);
+    margin-bottom: 2rem;
+}
+
+.featuresGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.featureItem {
+    background-color: var(--card-background);
+    border-radius: var(--card-border-radius);
+    box-shadow: 0 4px 8px var(--shadow-color);
+    padding: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.featureItem:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px var(--shadow-color);
+}
+
+.featureItem h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.featureItem p {
+    font-size: 1.1rem;
+    color: var(--text-color);
+}
+
+.featureItem i {
+    font-size: 3rem;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+
+.ctaSection {
+    padding: 2rem;
+    text-align: center;
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.ctaSection h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.ctaSection p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.signupButton {
+    background-color: var(--cta-button-color);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.signupButton:hover {
+    background-color: var(--cta-button-hover);
+    transform: scale(1.05);
+}
+
+.footer {
     padding: 1rem;
+    text-align: center;
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.footer p {
+    margin-bottom: 1rem;
+}
+
+.footer .socialMedia a {
+    color: white;
+    margin: 0 0.5rem;
+    text-decoration: none;
+}
+
+.footer .socialMedia a:hover {
+    text-decoration: underline;
 }
