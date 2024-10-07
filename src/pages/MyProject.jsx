@@ -9,16 +9,16 @@ export const Project = () => {
 
     return (
         <LayoutDefault>
-            <h1>Mis proyectos</h1>
-            <div>
+            <h1 className={styles['header-title']}>Mis proyectos</h1>
+            <div className={styles["projects-list"]}>
                 {loadingProjects ? (
-                    <p>Cargando proyectos...</p>
+                    <p className={styles["loading-message"]}>Cargando proyectos...</p>
                 ) : projects && projects.length > 0 ? (
                     projects.map((project) => (
                         <ProjectCard key={project._id} project={project} />
                     ))
                 ) : (
-                    <p>No hay proyectos</p>
+                    <p className={styles["no-projects-message"]}>No hay proyectos</p>
                 )}
             </div>
         </LayoutDefault>

@@ -3,8 +3,6 @@ import { MenuItem } from '../MenuItem'
 import styles from './sidebar.module.css'
 
 export const Sidebar = ({isOpen, toggleSidebar}) => {
-
-
   return (
     <div className={`${styles['sidebar']} ${isOpen ? styles['open'] : ''}`}>
       {/* Parte superior */}

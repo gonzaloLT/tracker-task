@@ -5,6 +5,7 @@ import { LayoutDefault } from "../Layout/LayoutDefault";
 import { useFetchProjectsById } from '../hooks/useFetchProjectsById';
 import { useFetchUsersById } from '../hooks/useFetchUsersById';
 import { useFetchEpics } from '../hooks/useFetchEpics';
+import styles from './styles/projectDetails.module.css'
 
 export const ProjectDetails = () => {
     const { projectId } = useParams();
@@ -13,7 +14,7 @@ export const ProjectDetails = () => {
     const membersIds = useMemo(() => {
         return project && project.members ? project.members : [];
     }, [project]);
-    
+
     const { data: owner, loading: loadingOwner } = useFetchUsersById(project?.owner)
 
     const { data: members, loading: loadingMembers } = useFetchUsersById(membersIds)
@@ -22,12 +23,12 @@ export const ProjectDetails = () => {
 
     return (
         <LayoutDefault>
-            <h1>Detalles del proyecto</h1>
-            {loadingProject ? <p>Cargando detalles del proyecto </p> :
-                <div>
-                    <div className='details'>
+            <h1 className={styles.h1}>Detalles del proyecto</h1>
+            {loadingProject ? <p className={styles["loading-message"]}>Cargando detalles del proyecto</p> :
+                <div className={styles.container}>
+                    <div className={styles.details}>
                         <h2>{project.name} {project.icon}</h2>
-                        <p><b>Descripcion:</b> {project.description}</p>
+                        <p><b>Descripción:</b> {project.description}</p>
                         <b>Propietario:</b>
                         {loadingOwner ? 'Cargando propietario...' :
                             owner && owner.length > 0 && owner[0]?.name
@@ -35,24 +36,24 @@ export const ProjectDetails = () => {
                                 : 'No se encontró al propietario'
                         }
                     </div>
-                    <div className='members'>
+                    <div className={styles.members}>
                         <h3>Miembros</h3>
-                        {loadingMembers ? <p>Cargando miembros...</p> :
+                        {loadingMembers ? <p className={styles["loading-message"]}>Cargando miembros...</p> :
                             members && members.length > 0 ?
                                 <ul>
                                     {members.map(member => <li key={member._id}>{member.name.first} {member.name.last}</li>)}
                                 </ul>
-                                : <p>No hay miembros en este proyecto</p>
+                                : <p className={styles["no-members-message"]}>No hay miembros en este proyecto</p>
                         }
                     </div>
-                    <div className='epics'>
-                        <h3>Epicas del proyecto</h3>
-                        {loadingEpics ? <p>Cargando epicas...</p> :
-                        epics && epics.length > 0 ? 
-                            <ul>
-                                {epics.map(epic => <EpicCard key={epic._id} epic={epic}></EpicCard>)}
-                            </ul>
-                            : <p>Este projecto no tiene epicas</p>
+                    <div className={styles.epics}>
+                        <h3>Épicas del proyecto</h3>
+                        {loadingEpics ? <p className={styles["loading-message"]}>Cargando épicas...</p> :
+                            epics && epics.length > 0 ?
+                                <ul>
+                                    {epics.map(epic => <EpicCard key={epic._id} epic={epic}></EpicCard>)}
+                                </ul>
+                                : <p className={styles["no-epics-message"]}>Este proyecto no tiene épicas</p>
                         }
                     </div>
                 </div>
