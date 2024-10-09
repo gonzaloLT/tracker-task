@@ -1,0 +1,49 @@
+.taskItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f1f5f9; /* Fondo claro */
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 0.5rem;
+    transition: background-color 0.2s ease;
+}
+
+.taskItem:hover {
+    background-color: #e2e8f0; /* Fondo más claro en hover */
+}
+
+.taskCheckbox {
+    margin-right: 1rem;
+    transform: scale(1.2);
+}
+
+.taskName {
+    flex-grow: 1;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.taskDescription {
+    display: none;
+    margin-left: 1rem;
+    color: #718096;
+}
+
+.taskName.active + .taskDescription {
+    display: block;
+}
+
+.taskButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #e53e3e;
+    font-size: 1.2rem;
+    transition: color 0.2s ease;
+}
+
+.taskButton:hover {
+    color: #c53030;
+}

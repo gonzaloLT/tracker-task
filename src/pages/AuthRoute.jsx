@@ -6,7 +6,7 @@ export const AuthRoute = ({ children }) => {
     const auth = useAuth()
 
     if (auth.isAuthenticated) {
-        return <Navigate to={'/dashboard'} />
+        return <Navigate to={'/home'} />
     }
 
     return children

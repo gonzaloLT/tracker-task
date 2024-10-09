@@ -1,8 +1,17 @@
 import {API_URL} from '../auth/constants'
 
-export const getStories = () => {
+export const getStories = async() => {
     const url = `${API_URL}/stories`
-  return 
+    const resp = await fetch(url, {
+      method: 'GET',
+      headers:{
+        'Content-Type':'application/json',
+        auth: localStorage.getItem('token')
+      }
+    })
+
+    const {data} = await resp.json()
+  return data;
 }
 
 export const getStoriesEpic = async (epicId) => {

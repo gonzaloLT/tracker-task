@@ -1,11 +1,11 @@
 import React, { useMemo } from "react";
 import { LayoutDefault } from "../Layout/LayoutDefault";
 import { useParams } from "react-router-dom";
-import { TaskCard } from "../components/TaskCard";
 import { useFetchStoryById } from "../hooks/useFetchStoryById";
 import { useFetchUsersById } from "../hooks/useFetchUsersById";
 import styles from './styles/story.module.css'
 import { useFetchTasksStory } from "../hooks/useFetchTasksStory";
+import { TaskList } from "../components/TaskList";
 
 export const Story = () => {
     const { storyId } = useParams();
@@ -18,17 +18,13 @@ export const Story = () => {
     const { data: assigned, loading: loadingAssigned } = useFetchUsersById(assignedToIds)
     const { data: tasks, loading: loadingTasks } = useFetchTasksStory(storyId)
 
-    console.log('story', story)
-    console.log('owner', owner)
-    console.log('assigned', assigned)
-    console.log('tasks', tasks)
     return (
         <LayoutDefault>
             <h1 className={styles.h1}>Detalles de la historia</h1>
             {loadingStory ? <p className={styles["loading-message"]}>Cargando detalles de la historia...</p> : (
                 story ? (
                     <div className={styles.container}>
-                        {/* Tarjeta con nombre y descripción */}
+
                         <div className={styles.card}>
                             <h2>{story.name || 'Sin nombre'} {story.icon}</h2>
                             <p><b>Descripción:</b> {story.description || 'Sin descripción'}</p>
@@ -62,7 +58,7 @@ export const Story = () => {
                         </div>
 
 
-                        <div className={styles.assigned}>
+                        <div className={styles.card}>
                             <b>Asignados a esta historia:</b>
                             {loadingAssigned ? (
                                 <p className={styles["loading-message"]}>Cargando asignados...</p>
@@ -80,16 +76,17 @@ export const Story = () => {
                         </div>
 
                         <div className={styles.tasks}>
-                            <h3>Tareas de la historia</h3>
+                            <div className={styles.taskHeader}>
+                                <h3>Tareas de la historia</h3>
+                                <button className={styles.addTaskButton} >
+                                    <i className="fa-solid fa-plus"></i> Agregar tarea
+                                </button>
+                            </div>
                             {loadingTasks ? (
                                 <p className={styles["loading-message"]}>Cargando tareas...</p>
                             ) : (
                                 tasks && tasks.length > 0 ? (
-                                    <ul>
-                                        {tasks.map(task => (
-                                            <TaskCard key={task._id} task={task} />
-                                        ))}
-                                    </ul>
+                                    <TaskList tasks={tasks} />
                                 ) : (
                                     <p>No hay tareas en esta historia</p>
                                 )
