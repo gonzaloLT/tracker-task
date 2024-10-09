@@ -4,7 +4,6 @@ import { useAuth } from "../auth/AuthProvider";
 
 export const Dashboard = () => {
     const { user } = useAuth()
-    console.log(user)
     return (
         <LayoutDefault>
             

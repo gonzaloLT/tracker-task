@@ -1,4 +1,4 @@
-import { useContext, createContext, useState } from "react"
+import { useContext, createContext, useState, useEffect } from "react"
 import { API_URL } from "./constants"
 
 const AuthContext = createContext({

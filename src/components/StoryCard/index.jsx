@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import styles from "./storyCard.module.css";
 
 export const StoryCard = ({ story, projectId, epicId }) => {
-    console.log(projectId)
     return (
         <Link
             to={`/my-projects/${projectId}/${epicId}/${story._id}`}

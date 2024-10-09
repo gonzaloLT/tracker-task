@@ -116,6 +116,10 @@
     text-decoration: underline;
 }
 
+.link{
+    text-decoration: none;
+}
+
 @media (max-width: 768px) {
     .featuresGrid {
         grid-template-columns: 1fr;

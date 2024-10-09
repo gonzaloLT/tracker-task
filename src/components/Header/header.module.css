@@ -28,3 +28,6 @@
     cursor: pointer;
   }
   
+  .link{
+    text-decoration: none;
+  }

@@ -1,5 +1,7 @@
+import { API_URL } from "../auth/constants"
+
 export const getEpics = async (projectId) => {  
-    const url = `https://lamansysfaketaskmanagerapi.onrender.com/api/projects/${projectId}/epics`
+    const url = `${API_URL}/projects/${projectId}/epics`
 
     const resp = await fetch(url, {
         headers:{
@@ -13,7 +15,7 @@ export const getEpics = async (projectId) => {
 }
 
 export const getEpicsById = async (epicId) => {
-    const url = `https://lamansysfaketaskmanagerapi.onrender.com/api/epics/${epicId}`
+    const url = `${API_URL}/epics/${epicId}`
 
     const resp = await fetch(url,{
         method: 'GET',

@@ -1,6 +1,7 @@
+import { API_URL } from "../auth/constants";
 //Obtener todos los proyectos
 export const getProjects = async () => {
-    const url = 'https://lamansysfaketaskmanagerapi.onrender.com/api/projects'
+    const url = `${API_URL}/projects`
     const resp = await fetch(url, {
         method: 'GET',
         headers: {
@@ -15,7 +16,7 @@ export const getProjects = async () => {
 
 //Obtener proyectos por id
 export const getProjectsById = async (projectId) => {
-    const url = `https://lamansysfaketaskmanagerapi.onrender.com/api/projects/${projectId}`
+    const url = `${API_URL}/projects/${projectId}`
     const resp = await fetch(url, {
         method: 'GET',
         headers: {

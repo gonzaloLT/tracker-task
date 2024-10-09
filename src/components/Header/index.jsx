@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import styles from "./header.module.css";
 import { Sidebar } from "../Sidebar";
+import { Link} from "react-router-dom";
 
 export const Header = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -12,7 +13,9 @@ export const Header = () => {
     return (
         <header className={styles["header"]}>
             <div className={styles["menu-button"]} onClick={toggleSidebar}>☰</div>
-            <h1 className={styles["title"]}>Task tracker</h1>
+            <Link to={'/'} className={styles['link']}>
+                <h1 className={styles["title"]}>Task tracker</h1>
+            </Link>
             <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar}/>
         </header>
     );
