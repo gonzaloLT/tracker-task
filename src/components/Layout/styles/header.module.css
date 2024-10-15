@@ -11,23 +11,32 @@
     left: 0;
     z-index: 100;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    box-sizing: border-box; /* Asegura que el padding no cause overflow */
-  }
-  
-  .title {
+    box-sizing: border-box;
+}
+
+.title {
     color: var(--header-text-color);
     font-size: 1.8rem;
     margin: 0;
-    overflow: hidden; /* Para que no se salga si es demasiado largo */
+    overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-  }
-  
-  .menu-button {
-    font-size: 2rem;
+}
+
+.menuButton {
+    background: none;
+    border: none;
+    color: var(--header-text-color);
+    font-size: 1.5rem;
     cursor: pointer;
-  }
-  
-  .link{
+    padding: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.menuButton:hover {
+    color: var(--header-hover-color);
+}
+
+.link {
     text-decoration: none;
-  }
+}

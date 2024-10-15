@@ -1,0 +1,64 @@
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: #023e8a;
+    color: white;
+    transition: left 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 1000;
+}
+
+.open {
+    left: 0;
+}
+
+.topSection {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    background-color: #022c5d;
+}
+
+.brand {
+    color: white;
+    font-size: 1.8rem;
+    margin: 0;
+}
+
+.closeButton {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.closeButton:hover {
+    color: #ff6f61;
+}
+
+.middleSection {
+    padding: 1rem 1.5rem;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.middleSection ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.bottomSection {
+    padding: 1rem;
+    background-color: #022c5d;
+    list-style: none;
+}

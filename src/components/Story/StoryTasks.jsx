@@ -8,11 +8,7 @@ export const StoryTasks = ({ storyId }) => {
     const [isCreatingTask, setIsCreatingTask] = useState(false);
 
     const handleCreateTask = () => {
-        setIsCreatingTask(true);
-        // Aquí puedes agregar la lógica para crear una nueva tarea
-        console.log("Creando nueva tarea para la historia:", storyId);
-        // Simular la creación de una tarea
-        setTimeout(() => setIsCreatingTask(false), 2000);
+        //Logica para crear una nueva tarea
     };
 
     return (
