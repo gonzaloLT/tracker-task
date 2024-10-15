@@ -1,6 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom'
 import { Home } from "../pages/Home";
-import { Project } from "../pages/MyProject";
+import { Projects } from "../pages/Projects";
 import { ProjectDetails } from "../pages/ProjectDetails";
 import { MyStory } from "../pages/MyStory";
 import { Epic } from "../pages/Epic";
@@ -39,7 +39,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "/my-projects",
-                element: <Project />,
+                element: <Projects />,
             },
             {
                 path: "/my-projects/:projectId",

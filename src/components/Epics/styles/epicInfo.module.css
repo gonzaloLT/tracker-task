@@ -1,0 +1,35 @@
+.epicDetails {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.epicDetails h2 {
+    font-size: 2rem;
+    color: #1f2937;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.epicDetails p {
+    font-size: 1.2rem;
+    color: #4a5568;
+    margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+    .epicDetails {
+        padding: 1.5rem;
+    }
+
+    .epicDetails h2 {
+        font-size: 1.8rem;
+    }
+
+    .epicDetails p {
+        font-size: 1.1rem;
+    }
+}

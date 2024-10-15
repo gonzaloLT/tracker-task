@@ -1,0 +1,50 @@
+/* Enlace de la tarjeta de historia */
+.link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+/* Tarjeta de historia */
+.storyCard {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra clara */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.link:hover .storyCard {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Sombra más profunda en hover */
+}
+
+/* Nombre de la historia */
+.name {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #2d3748; /* Gris oscuro */
+  margin-bottom: 0.5rem;
+}
+
+/* Descripción de la historia */
+.description {
+  font-size: 1.2rem;
+  color: #4a5568; /* Gris medio */
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+  .storyCard {
+      padding: 1rem;
+  }
+
+  .name {
+      font-size: 1.3rem;
+  }
+
+  .description {
+      font-size: 1.1rem;
+  }
+}

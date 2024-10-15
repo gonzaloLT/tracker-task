@@ -1,7 +1,9 @@
-import React, { useContext } from "react";
+import React from "react";
 import { LayoutDefault } from "../Layout/LayoutDefault";
 import { useParams } from "react-router-dom";
-import { StoryCard } from "../components/StoryCard";
+import { EpicInfo } from "../components/Epics/EpicInfo";
+import { StoriesList } from "../components/Story/StoriesList";
+import { LoadingMessage } from "../utils/LoadingMessage";
 import { useFetchEpicsById } from "../hooks/useFetchEpicsById";
 import { useFetchStoriesEpic } from "../hooks/useFetchStoriesEpic";
 import styles from './styles/epic.module.css'
@@ -13,25 +15,22 @@ export const Epic = () => {
 
     return (
         <LayoutDefault>
-             <h1 className={styles['title']}>Detalles de épica</h1>
-            {loadingEpics ? <p className={styles['loading-message']}>Cargando detalles de épica...</p> :
-                <div>
-                    <div className={styles['details']}>
-                        <h2>{epic.name} {epic.icon}</h2>
-                        <p><b>Descripción:</b> {epic.description}</p>
+            <div className={styles.pageContainer}>
+                <h1 className={styles.pageTitle}>Detalles de épica</h1>
+                {loadingEpics ? (
+                    <LoadingMessage message="Cargando detalles de épica..." />
+                ) : (
+                    <div className={styles.epicContainer}>
+                        <EpicInfo epic={epic} />
+                        <StoriesList 
+                            stories={stories} 
+                            loading={loadingStories} 
+                            epicId={epicId} 
+                            projectId={projectId} 
+                        />
                     </div>
-                    <div className={styles['stories']}>
-                        <h2>Historias</h2>
-                        {loadingStories ? <p className={styles['loading-message']}>Cargando historias...</p> : 
-                            <ul>
-                                {stories.map(story => 
-                                    <StoryCard key={story._id} story={story} epicId={epicId} projectId={projectId}/>
-                                )}
-                            </ul>
-                        }
-                    </div>
-                </div>
-            }
+                )}
+            </div>
         </LayoutDefault>
-    )
+    );
 };

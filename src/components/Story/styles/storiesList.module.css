@@ -1,0 +1,27 @@
+.storiesContainer {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.storiesContainer h2 {
+    font-size: 1.8rem;
+    color: #1f2937;
+    margin-bottom: 1rem;
+}
+
+.storiesContainer ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+@media (max-width: 768px) {
+    .storiesContainer {
+        padding: 1rem;
+    }
+
+    .storiesContainer h2 {
+        font-size: 1.6rem;
+    }
+}

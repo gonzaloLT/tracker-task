@@ -1,54 +1,63 @@
-/* Contenedor de la lista de proyectos */
-.projects-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    padding: 2rem;
-    background-color: #f4f5f7; /* Fondo consistente con otros componentes */
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Sombra suave */
+.pageContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.pageTitle {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #1f2937;
+  margin-bottom: 2rem;
+  text-align: center;
+  border-bottom: 2px solid #3182ce;
+  padding-bottom: 0.5rem;
+}
+
+.projectsList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  background-color: #f4f5f7;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.loadingContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+}
+
+.loadingMessage {
+  font-size: 1.2rem;
+  color: #2b6cb0;
+  text-align: center;
+  padding: 1rem;
+  background-color: #e6f0ff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.noProjectsMessage {
+  font-size: 1.3rem;
+  color: #a0aec0;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .pageContainer {
+      padding: 1rem;
   }
-  
-  /* Título principal */
-  .header-title {
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: #1f2937; /* Gris oscuro */
-    text-align: center;
-    margin-bottom: 2rem;
-    letter-spacing: -0.5px;
-    border-bottom: 2px solid #3182ce; /* Barra subrayada azul */
-    padding-bottom: 0.5rem;
+
+  .pageTitle {
+      font-size: 2rem;
   }
-  
-  /* Mensaje de carga */
-  .loading-message {
-    font-size: 1.4rem;
-    color: #2b6cb0; /* Azul para consistencia */
-    text-align: center;
-  }
-  
-  /* Mensaje de "no hay proyectos" */
-  .no-projects-message {
-    font-size: 1.3rem;
-    color: #a0aec0;
-    text-align: center;
-  }
-  
-  /* Ajustes responsivos */
-  @media (max-width: 768px) {
-    .projects-list {
+
+  .projectsList {
       grid-template-columns: 1fr;
       padding: 1rem;
-    }
-  
-    .header-title {
-      font-size: 2rem;
-    }
-  
-    .loading-message,
-    .no-projects-message {
-      font-size: 1.2rem;
-    }
   }
-  
+}

@@ -1,0 +1,66 @@
+.tasksContainer {
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.taskHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #1f2937;
+}
+
+.addTaskButton {
+    background-color: #3182ce;
+    color: #ffffff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.addTaskButton:hover:not(:disabled) {
+    background-color: #2c5282;
+}
+
+.addTaskButton:disabled {
+    background-color: #a0aec0;
+    cursor: not-allowed;
+}
+
+.loadingMessage {
+    font-size: 0.9rem;
+    color: #2b6cb0;
+    text-align: center;
+    font-style: italic;
+}
+
+.noTasks {
+    color: #4b5563;
+    text-align: center;
+    font-style: italic;
+}
+
+@media (max-width: 768px) {
+    .tasksContainer {
+        padding: 1rem;
+    }
+
+    .title {
+        font-size: 1rem;
+    }
+
+    .addTaskButton {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+    }
+}

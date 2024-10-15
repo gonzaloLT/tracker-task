@@ -1,0 +1,49 @@
+.epicLink {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.epicCard {
+  background-color: #edf2f7;
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.epicCard:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.nameEpica {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #2d3748;
+  margin-bottom: 0.8rem;
+}
+
+.descriptionEpica {
+  font-size: 1.3rem;
+  color: #4a5568;
+  margin-bottom: 1rem;
+}
+
+.iconEpica {
+  font-size: 1.3rem;
+  color: #3182ce;
+}
+
+@media (max-width: 768px) {
+  .epicCard {
+    padding: 1rem;
+  }
+
+  .nameEpica,
+  .descriptionEpica,
+  .iconEpica {
+    font-size: 1.2rem;
+  }
+}

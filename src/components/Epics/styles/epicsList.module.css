@@ -1,0 +1,30 @@
+.epics {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.epics h3 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #2d3748;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.08);
+  margin-bottom: 1rem;
+}
+
+.no-epics-message {
+  font-size: 1.2rem;
+  color: #a0aec0;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .epics {
+    padding: 1rem;
+  }
+
+  .epics h3 {
+    font-size: 1.8rem;
+  }
+}
