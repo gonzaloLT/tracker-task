@@ -3,15 +3,13 @@ import styles from './styles/taskList.module.css'
 import { TaskItem } from './TaskItem';
 
 export const TaskList = ({tasks}) => {
-    return tasks.length > 0 ? (
+    return Array.isArray(tasks) && tasks.length > 0 ? (
         <div className={styles.taskListContainer}>
           <ul>
             {tasks.map((task) => (
               <TaskItem
                 key={task._id}
                 task={task}
-/*                 toggleTask={toggleTask}
-                handleDelete={handleDelete} */
               />
             ))}
           </ul>

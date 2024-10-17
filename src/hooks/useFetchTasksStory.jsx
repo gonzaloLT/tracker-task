@@ -11,7 +11,7 @@ export const useFetchTasksStory = (storyId) => {
         getTaskStory(storyId)
             .then(tasks => {
                 setState({
-                    data: tasks,
+                    data: tasks || [],
                     loading: false
                 })
             })
@@ -24,5 +24,12 @@ export const useFetchTasksStory = (storyId) => {
             })
     }, [])
 
-    return state;
+    const setTasks = (tasks) => {
+        setState((prevState) => ({
+            ...prevState,
+            data: tasks,
+        }));
+    };
+
+    return {...state, setTasks};
 }

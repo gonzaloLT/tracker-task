@@ -12,11 +12,11 @@ localStorage.setItem('token', TOKEN);
 
 createRoot(document.getElementById("root")).render(
     <StrictMode>
-        {/* <AuthProvider>
+         <AuthProvider>
             <RouterProvider router={router} />
-        </AuthProvider> */}
-        <Modal title={"Crear tarea"}>
+        </AuthProvider> 
+        {/* <Modal title={"Crear tarea"}>
             <FormTask />
-        </Modal>
+        </Modal> */}
     </StrictMode>
 );

@@ -1,27 +1,42 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
 
-export const FormTask = () => {
-    const { register, handleSubmit } = useForm();
+export const FormTask = ({onTaskCreated, isSubmitting}) => {
 
+    const {register, handleSubmit, formState: {errors}, reset} = useForm()
 
-
-
+    const onSubmit = (data)=>{
+        onTaskCreated(data)
+        reset()
+    }
 
     return (
         <div>
-            <form>
+            <form onSubmit={handleSubmit(onSubmit)}>
                 <div>
-                    <label htmlFor="title">Título</label>
-                    <input type="text" id="title" name="title" />
+                    <label>Nombre: </label>
+                    <input 
+                        type="text"
+                        {...register('name', {required: 'El nombre de tarea es obligatorio'})}
+                    />
+                    {errors.name && <p>{errors.name.message}</p>}
                 </div>
 
                 <div>
-                    <label htmlFor="description">Descripción</label>
-                    <textarea id="description" name="description" />
+                    <label>Descripción</label>
+                    <input 
+                        type="text"
+                        {...register('description', {
+                            validate: (value) =>
+                                value === '' || value.length >= 10 || 'La descripción debe tener al menos 10 caracteres'
+                        })}
+                    />
+                    {errors.description && <p>{errors.description.message}</p>}
                 </div>
 
-                <button type="submit">Crear</button>
+                <button type="submit">
+                    {isSubmitting ? 'Creando tarea' : 'Crear'}
+                </button>
             </form>
         </div>
     )
