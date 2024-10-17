@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import styles from './taskItem.module.css'
+import styles from './styles/taskItem.module.css'
 
 export const TaskItem = ({ task, toggleTask, handleDelete }) => {
     const { name, description, completed } = task;

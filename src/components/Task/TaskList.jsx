@@ -1,6 +1,6 @@
 import React from 'react'
-import styles from './taskList.module.css'
-import { TaskItem } from '../TaskItem';
+import styles from './styles/taskList.module.css'
+import { TaskItem } from './TaskItem';
 
 export const TaskList = ({tasks}) => {
     return tasks.length > 0 ? (

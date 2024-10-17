@@ -7,22 +7,22 @@ export const useFetchTasksStory = (storyId) => {
         loading: true
     })
 
-    useEffect(()=>{
+    useEffect(() => {
         getTaskStory(storyId)
-            .then(tasks =>{
+            .then(tasks => {
                 setState({
                     data: tasks,
-                    loading:false
+                    loading: false
                 })
             })
-            .catch((err)=>{
+            .catch((err) => {
                 console.log(err)
                 setState({
                     data: [],
                     loading: false
                 })
             })
-    },[])
+    }, [])
 
-  return state;
+    return state;
 }

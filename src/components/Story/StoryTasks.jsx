@@ -1,15 +1,12 @@
 import React, { useState } from 'react';
 import { useFetchTasksStory } from "../../hooks/useFetchTasksStory";
-import { TaskList } from "../TaskList";
+import { TaskList } from '../Task/TaskList';
 import styles from './styles/storyTasks.module.css';
 
 export const StoryTasks = ({ storyId }) => {
     const { data: tasks, loading: loadingTasks } = useFetchTasksStory(storyId);
     const [isCreatingTask, setIsCreatingTask] = useState(false);
 
-    const handleCreateTask = () => {
-        //Logica para crear una nueva tarea
-    };
 
     return (
         <div className={styles.tasksContainer}>
