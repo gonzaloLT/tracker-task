@@ -7,29 +7,26 @@ export const useFetchTasksStory = (storyId) => {
         loading: true
     })
 
+    const fetchTask = async ()=>{
+        setState((prevState) => ({...prevState, loading: true}) )
+        try {
+            const tasks = await getTaskStory(storyId)
+            setState({
+                data: tasks || [],
+                loading: false
+            })
+        } catch (error) {
+            console.log(error)
+            setState({
+                data: [],
+                loading: false
+            })
+        }
+    }
+
     useEffect(() => {
-        getTaskStory(storyId)
-            .then(tasks => {
-                setState({
-                    data: tasks || [],
-                    loading: false
-                })
-            })
-            .catch((err) => {
-                console.log(err)
-                setState({
-                    data: [],
-                    loading: false
-                })
-            })
-    }, [])
+        fetchTask();
+    }, [storyId])
 
-    const setTasks = (tasks) => {
-        setState((prevState) => ({
-            ...prevState,
-            data: tasks,
-        }));
-    };
-
-    return {...state, setTasks};
+    return {...state, fetchTask};
 }

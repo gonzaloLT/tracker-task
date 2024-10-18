@@ -1,49 +1,90 @@
 .taskItem {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #f1f5f9; /* Fondo claro */
-    padding: 1rem;
-    border-radius: 8px;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 0.5rem;
+    flex-direction: column;
+    background-color: #f1f5f9;
+    padding: 0.8rem; /* Reducido */
+    border-radius: 6px; /* Menor radio */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); 
+    margin-bottom: 0.4rem; /* Menor margen */
     transition: background-color 0.2s ease;
 }
 
 .taskItem:hover {
-    background-color: #e2e8f0; /* Fondo más claro en hover */
+    background-color: #e2e8f0;
 }
 
-.taskCheckbox {
-    margin-right: 1rem;
-    transform: scale(1.2);
+/* Cabecera */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.4rem; /* Reducido */
 }
 
 .taskName {
-    flex-grow: 1;
-    font-size: 1.2rem;
+    font-size: 1rem; /* Reducido */
     cursor: pointer;
-}
-
-.taskDescription {
-    display: none;
-    margin-left: 1rem;
-    color: #718096;
-}
-
-.taskName.active + .taskDescription {
-    display: block;
+    font-weight: bold;
+    flex: 1;
 }
 
 .taskButton {
     background: none;
     border: none;
     cursor: pointer;
-    color: #e53e3e;
-    font-size: 1.2rem;
+    color: #000;
+    font-size: 1rem; /* Reducido */
     transition: color 0.2s ease;
 }
 
 .taskButton:hover {
     color: #c53030;
 }
+
+.taskDetails {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem; /* Espaciado reducido */
+    color: #718096;
+    font-size: 0.85rem; /* Fuente más pequeña */
+    margin-top: 0.4rem; /* Espaciado reducido */
+}
+
+/* Botón Editar Compacto */
+.editButton {
+    align-self: flex-end;
+    width: fit-content;
+    padding: 0.4rem 0.8rem; /* Más pequeño */
+    font-size: 0.85rem; /* Reducido */
+    color: white;
+    background-color: #3182ce;
+    border: none;
+    border-radius: 4px; /* Redondeado más pequeño */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 0.4rem;
+}
+
+.editButton:hover {
+    background-color: #2b6cb0;
+}
+
+/* Responsivo */
+@media (min-width: 768px) {
+    .taskItem {
+        padding: 1rem;
+    }
+
+    .taskName {
+        font-size: 1.2rem;
+    }
+
+    .taskButton {
+        font-size: 1.2rem;
+    }
+
+    .editButton {
+        font-size: 0.9rem;
+    }
+}
+

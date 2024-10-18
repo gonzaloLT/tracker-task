@@ -12,7 +12,7 @@ export const createTask = async (task) => {
             body: JSON.stringify(task)
         });
         if(!response.ok){
-            throw new Error('Error creating task')
+            throw new Error(`Error al crear tarea`)
         }
 
         const data = await response.json();
@@ -20,6 +20,28 @@ export const createTask = async (task) => {
     } catch(error){
         console.log('Error', error )
         return null;
+    }
+}
+
+
+//Borrar tarea
+export const deleteTask = async (taskId)=>{
+    try {
+        const response = await fetch(`${API_URL}/tasks/${taskId}`,{
+            method: 'DELETE',
+            headers: {
+                'auth': localStorage.getItem('token')
+            },
+        })
+
+        if(!response.ok){
+            throw new Error(`Error al borrar la tarea con id: ${taskId}`)
+        }
+
+        return true;
+    } catch (error) {
+        console.log('Error: ',error)
+        return false;
     }
 }
 

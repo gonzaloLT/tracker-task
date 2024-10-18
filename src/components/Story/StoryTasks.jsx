@@ -4,10 +4,10 @@ import { TaskList } from '../Task/TaskList';
 import styles from './styles/storyTasks.module.css';
 import { Modal } from '../../utils/Modal';
 import { FormTask } from '../Form/FormTask';
-import { createTask } from '../../api/taskApi'
+import { createTask, deleteTask } from '../../api/taskApi'
 
 export const StoryTasks = ({ storyId }) => {
-    const { data: tasks, loading: loadingTasks, setTasks } = useFetchTasksStory(storyId);
+    const { data: tasks, loading: loadingTasks, fetchTask } = useFetchTasksStory(storyId);
     const [isCreatingTask, setIsCreatingTask] = useState(false); // Controla si el modal está abierto o no
     const [isSubmitting, setIsSubmitting] = useState(false); // Controla si la tarea está en proceso de creación
 
@@ -22,13 +22,24 @@ export const StoryTasks = ({ storyId }) => {
     const handleCreatedTask = async (task)=>{
         setIsSubmitting(true)
         try {
-            const newTask = await createTask({...task, story: storyId})
-            setTasks((prevTasks)=>[...prevTasks, newTask])
+            await createTask({...task, story: storyId})
+            await fetchTask();
             setIsCreatingTask(false)
         } catch (error) {
             console.log('Error al crear la tarea')
         } finally {
             setIsSubmitting(false)
+        }
+    }
+
+    const handleDeleteTask = async (taskId)=>{
+        try {
+            const success = await deleteTask(taskId);
+            if (success){
+                await fetchTask();
+            }
+        } catch (error) {
+            console.log(`Error al eliminar la tarea ${taskId}`)
         }
     }
 
@@ -48,13 +59,16 @@ export const StoryTasks = ({ storyId }) => {
             {loadingTasks ? (
                 <p className={styles.loadingMessage}>Cargando tareas...</p>
             ) : tasks && tasks.length > 0 ? (
-                <TaskList tasks={tasks} />
+                <TaskList tasks={tasks} handleDelete={handleDeleteTask}/>
             ) : (
                 <p className={styles.noTasks}>No hay tareas en esta historia</p>
             )}
 
             <Modal title={'Crear Tarea'} isOpen={isCreatingTask} closeModal={handleCloseModal}>
-                <FormTask onTaskCreated={handleCreatedTask} isSubmitting={isSubmitting}/>
+                <FormTask 
+                    onTaskCreated={handleCreatedTask} 
+                    isSubmitting={isSubmitting}
+                />
             </Modal>
 
         </div>
