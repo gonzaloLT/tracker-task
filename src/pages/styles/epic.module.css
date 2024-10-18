@@ -21,6 +21,27 @@
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
+.backButton {
+  background-color: transparent;
+  color: #4a5568; /* Un gris oscuro suave */
+  border: none;
+  font-size: 0.9rem; /* Tamaño reducido para móviles */
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  transition: color 0.3s ease;
+  padding: 0; /* Sin padding para que no ocupe mucho espacio */
+}
+
+.backButton:hover {
+  color: #2b6cb0; /* Color azul suave para hover */
+}
+
+.backButton svg {
+  margin-right: 0.4rem; /* Menor espacio en móviles */
+}
+
 @media (max-width: 768px) {
   .pageContainer {
       padding: 1rem;

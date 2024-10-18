@@ -1,3 +1,19 @@
+.pageContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.pageTitle {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #1f2937;
+  margin-bottom: 2rem;
+  text-align: center;
+  border-bottom: 2px solid #3182ce;
+  padding-bottom: 0.5rem;
+}
+
 .container {
   display: grid;
   /* grid-template-columns: 1fr 1fr; */
@@ -35,6 +51,27 @@
     background-color: #e6f0ff;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.backButton {
+  background-color: transparent;
+  color: #4a5568; /* Un gris oscuro suave */
+  border: none;
+  font-size: 0.9rem; /* Tamaño reducido para móviles */
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  transition: color 0.3s ease;
+  padding: 0; /* Sin padding para que no ocupe mucho espacio */
+}
+
+.backButton:hover {
+  color: #2b6cb0; /* Color azul suave para hover */
+}
+
+.backButton svg {
+  margin-right: 0.4rem; /* Menor espacio en móviles */
 }
 
 @media (max-width: 768px) {
