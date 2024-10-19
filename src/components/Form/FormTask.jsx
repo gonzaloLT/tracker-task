@@ -1,5 +1,6 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
+import styles from './styles/form.module.css'
 
 export const FormTask = ({onTaskCreated, isSubmitting}) => {
 
@@ -11,33 +12,36 @@ export const FormTask = ({onTaskCreated, isSubmitting}) => {
     }
 
     return (
-        <div>
+        <div className={styles.formContainer}>
             <form onSubmit={handleSubmit(onSubmit)}>
-                <div>
-                    <label>Nombre: </label>
-                    <input 
+                <div className={styles.formGroup}>
+                    <label className={styles.label}>Nombre: </label>
+                    <input
+                        className={styles.input}
                         type="text"
-                        {...register('name', {required: 'El nombre de tarea es obligatorio'})}
+                        {...register('name', { required: 'El nombre de tarea es obligatorio' })}
                     />
-                    {errors.name && <p>{errors.name.message}</p>}
+                    {errors.name && <p className={styles.errorMessage}>{errors.name.message}</p>}
                 </div>
 
-                <div>
-                    <label>Descripción</label>
-                    <input 
+                <div className={styles.formGroup}>
+                    <label className={styles.label}>Descripción</label>
+                    <input
+                        className={styles.input}
                         type="text"
                         {...register('description', {
                             validate: (value) =>
                                 value === '' || value.length >= 10 || 'La descripción debe tener al menos 10 caracteres'
                         })}
                     />
-                    {errors.description && <p>{errors.description.message}</p>}
+                    {errors.description && <p className={styles.errorMessage}>{errors.description.message}</p>}
                 </div>
 
-                <button type="submit">
+                <button className={styles.submitButton} type="submit" disabled={isSubmitting}>
                     {isSubmitting ? 'Creando tarea' : 'Crear'}
                 </button>
             </form>
         </div>
     )
+
 }

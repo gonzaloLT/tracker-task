@@ -6,15 +6,21 @@ export const useFetchProjectsById = (projectId, TOKEN) => {
         data: null,
         loading: true
     })
+
+    const fetchProject = async () => {
+    }
+
+
+
     useEffect(() => {
         getProjectsById(projectId, TOKEN)
-            .then(project => {        
+            .then(project => {
                 setState({
                     data: project,
                     loading: false
                 })
             })
-            .catch(()=>{
+            .catch(() => {
                 setState({
                     data: null,
                     loading: false
