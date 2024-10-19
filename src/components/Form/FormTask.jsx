@@ -2,11 +2,11 @@ import React from 'react'
 import { useForm } from 'react-hook-form'
 import styles from './styles/form.module.css'
 
-export const FormTask = ({onTaskCreated, isSubmitting}) => {
+export const FormTask = ({ onTaskCreated, isSubmitting }) => {
 
-    const {register, handleSubmit, formState: {errors}, reset} = useForm()
+    const { register, handleSubmit, formState: { errors }, reset } = useForm()
 
-    const onSubmit = (data)=>{
+    const onSubmit = (data) => {
         onTaskCreated(data)
         reset()
     }
@@ -26,7 +26,7 @@ export const FormTask = ({onTaskCreated, isSubmitting}) => {
 
                 <div className={styles.formGroup}>
                     <label className={styles.label}>Descripción</label>
-                    <input
+                    <textarea
                         className={styles.input}
                         type="text"
                         {...register('description', {

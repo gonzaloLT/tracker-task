@@ -2,7 +2,7 @@ import { API_URL } from "../auth/constants";
 
 //Crear tarea
 export const createTask = async (task) => {
-    try{
+    try {
         const response = await fetch(`${API_URL}/tasks`, {
             method: 'POST',
             headers: {
@@ -11,39 +11,61 @@ export const createTask = async (task) => {
             },
             body: JSON.stringify(task)
         });
-        if(!response.ok){
+        if (!response.ok) {
             throw new Error(`Error al crear tarea`)
         }
 
         const data = await response.json();
         return data;
-    } catch(error){
-        console.log('Error', error )
+    } catch (error) {
+        console.log('Error', error)
         return null;
     }
 }
 
 
 //Borrar tarea
-export const deleteTask = async (taskId)=>{
+export const deleteTask = async (taskId) => {
     try {
-        const response = await fetch(`${API_URL}/tasks/${taskId}`,{
+        const response = await fetch(`${API_URL}/tasks/${taskId}`, {
             method: 'DELETE',
             headers: {
                 'auth': localStorage.getItem('token')
             },
         })
 
-        if(!response.ok){
+        if (!response.ok) {
             throw new Error(`Error al borrar la tarea con id: ${taskId}`)
         }
 
         return true;
     } catch (error) {
-        console.log('Error: ',error)
+        console.log('Error: ', error)
         return false;
     }
 }
 
 
 //Actualizar tareas
+export const updateTask = async (taskId, updateTask) => {
+    try {
+        const response = await fetch(`${API_URL}/tasks/${taskId}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'auth': localStorage.getItem('token')
+            },
+            body: JSON.stringify(updateTask)
+        })
+
+        if (!response.ok) {
+            throw new Error(`Error al actualizar la tarea con id: ${taskId}`)
+        }
+
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.log('Error: ', error)
+        return null;
+    }
+}

@@ -1,16 +1,16 @@
 import React from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { PublicLayout } from '../Layout/PublicLayout'
-import { LoginForm } from '../components/LoginForm';
+import { LoginForm } from '../components/Form/LoginForm';
 import { useAuth } from '../auth/AuthProvider';
 
 export const Login = () => {
     const auth = useAuth()
 
-    if(auth.isAuthenticated){
-        return <Navigate to={'/'}/>
+    if (auth.isAuthenticated) {
+        return <Navigate to={'/'} />
     }
-    return(
+    return (
         <PublicLayout>
             <LoginForm />
         </PublicLayout>

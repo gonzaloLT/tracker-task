@@ -8,7 +8,7 @@ import { Story } from "../pages/Story";
 import { Settings } from "../pages/Settings";
 import { Login } from '../pages/Login';
 import { Signup } from '../pages/Signup';
-import { ProtetedRoute } from '../pages/ProtetedRoute';
+import { ProtectedRoute } from '../pages/ProtectedRoute';
 import { Dashboard } from '../pages/Dashboard';
 import { AuthRoute } from '../pages/AuthRoute';
 
@@ -31,7 +31,7 @@ const router = createBrowserRouter([
     },
     {
         path: '/',
-        element: <ProtetedRoute />,
+        element: <ProtectedRoute />,
         children: [
             {
                 path: '/home',

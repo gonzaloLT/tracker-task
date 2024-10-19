@@ -8,10 +8,10 @@ export const Dashboard = () => {
     const { user } = useAuth();
 
     const dashboardItems = [
-        { icon: <FaProjectDiagram />, title: "Mis Proyectos", description: "Ver y gestionar tus proyectos actuales"},
-        { icon: <FaTasks />, title: "Tareas Pendientes", description: "Revisar y actualizar tus tareas asignadas"},
-        { icon: <FaLightbulb />, title: "Épicas", description: "Explorar las épicas de tus proyectos"},
-        { icon: <FaClipboardList />, title: "Historias", description: "Revisar las historias de usuario"},
+        { icon: <FaProjectDiagram />, title: "Mis Proyectos", description: "Ver y gestionar tus proyectos actuales" },
+        { icon: <FaTasks />, title: "Tareas Pendientes", description: "Revisar y actualizar tus tareas asignadas" },
+        { icon: <FaLightbulb />, title: "Épicas", description: "Explorar las épicas de tus proyectos" },
+        { icon: <FaClipboardList />, title: "Historias", description: "Revisar las historias de usuario" },
     ];
 
     return (
@@ -24,7 +24,7 @@ export const Dashboard = () => {
 
                 <div className={styles.dashboardGrid}>
                     {dashboardItems.map((item, index) => (
-                        <div className={styles.dashboardItem}>
+                        <div className={styles.dashboardItem} key={index}>
                             <div className={styles.itemIcon}>{item.icon}</div>
                             <h2>{item.title}</h2>
                             <p>{item.description}</p>

@@ -2,15 +2,16 @@
     display: flex;
     flex-direction: column;
     background-color: #f1f5f9;
-    padding: 0.8rem; /* Reducido */
-    border-radius: 6px; /* Menor radio */
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); 
-    margin-bottom: 0.4rem; /* Menor margen */
-    transition: background-color 0.2s ease;
+    padding: 0.8rem;
+    border-radius: 8px; /* Ligeramente más redondeado */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra más suave */
+    margin-bottom: 0.6rem; /* Un poco más de espacio entre tareas */
+    transition: all 0.2s ease;
 }
 
 .taskItem:hover {
     background-color: #e2e8f0;
+    transform: translateY(-2px); /* Efecto sutil de elevación al pasar el mouse */
 }
 
 /* Cabecera */
@@ -18,55 +19,65 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 0.4rem; /* Reducido */
+    margin-bottom: 0.4rem;
 }
 
 .taskName {
-    font-size: 1rem; /* Reducido */
+    font-size: 1rem;
     cursor: pointer;
-    font-weight: bold;
+    font-weight: 600; /* Un poco más ligero que bold */
     flex: 1;
+    color: #2d3748; /* Color más oscuro para mejor contraste */
+    transition: color 0.2s ease;
+}
+
+.taskName:hover {
+    color: #4a5568; /* Cambio sutil de color al pasar el mouse */
 }
 
 .taskButton {
     background: none;
     border: none;
     cursor: pointer;
-    color: #000;
-    font-size: 1rem; /* Reducido */
-    transition: color 0.2s ease;
+    color: #718096; /* Color más suave inicialmente */
+    font-size: 1rem;
+    transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .taskButton:hover {
     color: #c53030;
+    transform: scale(1.1); /* Ligero aumento de tamaño al pasar el mouse */
 }
 
 .taskDetails {
     display: flex;
     flex-direction: column;
-    gap: 0.4rem; /* Espaciado reducido */
-    color: #718096;
-    font-size: 0.85rem; /* Fuente más pequeña */
-    margin-top: 0.4rem; /* Espaciado reducido */
+    gap: 0.5rem; /* Un poco más de espacio entre elementos */
+    color: #4a5568; /* Color más oscuro para mejor legibilidad */
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+    line-height: 1.4; /* Mejora la legibilidad del texto */
 }
 
 /* Botón Editar Compacto */
 .editButton {
     align-self: flex-end;
     width: fit-content;
-    padding: 0.4rem 0.8rem; /* Más pequeño */
-    font-size: 0.85rem; /* Reducido */
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
     color: white;
     background-color: #3182ce;
     border: none;
-    border-radius: 4px; /* Redondeado más pequeño */
+    border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: 0.4rem;
+    transition: all 0.3s ease;
+    margin-top: 0.6rem;
+    font-weight: 500; /* Un poco más de peso para mejor visibilidad */
 }
 
 .editButton:hover {
     background-color: #2b6cb0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra sutil al pasar el mouse */
 }
 
 /* Responsivo */
@@ -76,15 +87,15 @@
     }
 
     .taskName {
-        font-size: 1.2rem;
+        font-size: 1.1rem; /* Ligeramente más pequeño que antes para consistencia */
     }
 
     .taskButton {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
 
     .editButton {
         font-size: 0.9rem;
+        padding: 0.5rem 1rem; /* Un poco más grande en pantallas más grandes */
     }
 }
-
