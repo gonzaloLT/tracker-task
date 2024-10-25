@@ -8,11 +8,27 @@
 
 /* Tarjeta de historia */
 .storyCard {
+  display: flex;
+  justify-content: space-between;
   background-color: #ffffff;
   border-radius: 12px;
   padding: 1.5rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra clara */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.deleteButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #626a77; /* Color más suave inicialmente */
+  font-size: 1rem;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.deleteButton:hover {
+  color: #c53030;
+  transform: scale(1.1); /* Ligero aumento de tamaño al pasar el mouse */
 }
 
 .link:hover .storyCard {
@@ -41,10 +57,15 @@
   }
 
   .name {
-      font-size: 1.3rem;
+      font-size: 1.2rem;
   }
 
   .description {
-      font-size: 1.1rem;
+      font-size: 1.0rem;
   }
+
+  .deleteButton {
+    font-size: 1.1rem;
+    padding: 6px;
+}
 }

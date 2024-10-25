@@ -1,4 +1,4 @@
-.taskHeader {
+.storyHeader {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -11,7 +11,7 @@
     color: #1f2937;
 }
 
-.addTaskButton {
+.addStoryButton {
   background-color: #3182ce;
   color: #ffffff;
   border: none;
@@ -21,11 +21,11 @@
   transition: background-color 0.2s ease-in-out;
 }
 
-.addTaskButton:hover:not(:disabled) {
+.addStoryButton:hover:not(:disabled) {
   background-color: #2c5282;
 }
 
-.addTaskButton:disabled {
+.addStoryButton:disabled {
   background-color: #a0aec0;
   cursor: not-allowed;
 }
@@ -35,7 +35,7 @@
       font-size: 1rem;
   }
 
-  .addTaskButton {
+  .addStoryButton {
       padding: 0.4rem 0.8rem;
       font-size: 0.9rem;
   }

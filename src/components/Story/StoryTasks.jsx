@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { useFetchTasksStory } from "../../hooks/useFetchTasksStory";
 import { TaskList } from '../Task/TaskList';
-import styles from './styles/storyTasks.module.css';
-import { Modal } from '../../utils/Modal';
-import { FormTask } from '../Form/FormTask';
-import { EditTask } from '../Form/EditTask';
+import { TaskHeader } from '../Task/TaskHeader';
 import { createTask, deleteTask, updateTask } from '../../api/taskApi'
+import styles from './styles/storyTasks.module.css';
+import { CreateTaskModal } from '../Task/CreateTaskModal';
+import { EditTaskModal } from '../Task/EditTaskModal';
 
 export const StoryTasks = ({ storyId }) => {
     const { data: tasks, loading: loadingTasks, fetchTask } = useFetchTasksStory(storyId);
@@ -70,16 +70,7 @@ export const StoryTasks = ({ storyId }) => {
 
     return (
         <div className={styles.tasksContainer}>
-            <div className={styles.taskHeader}>
-                <h3 className={styles.title}>Tareas de la historia</h3>
-                <button
-                    className={styles.addTaskButton}
-                    onClick={handleCreateTaskClick}
-                    disabled={isCreatingTask}
-                >
-                    {isCreatingTask ? 'Creando tarea...' : 'Agregar tarea'}
-                </button>
-            </div>
+            <TaskHeader onCreateTask={handleCreateTaskClick} isCreating={isCreatingTask}/>
             {loadingTasks ? (
                 <p className={styles.loadingMessage}>Cargando tareas...</p>
             ) : tasks && tasks.length > 0 ? (
@@ -92,20 +83,21 @@ export const StoryTasks = ({ storyId }) => {
                 <p className={styles.noTasks}>No hay tareas en esta historia</p>
             )}
 
-            <Modal title={'Crear Tarea'} isOpen={isCreatingTask} closeModal={handleCloseModal}>
-                <FormTask
-                    onTaskCreated={handleCreatedTask}
-                    isSubmitting={isSubmitting}
-                />
-            </Modal>
+            <CreateTaskModal 
+                isOpen={isCreatingTask} 
+                onClose={handleCloseModal} 
+                onSubmit={handleCreatedTask}
+                isSubmitting={isSubmitting} 
+            />
 
-            <Modal title={'Actualizar Tarea'} isOpen={isUpdatingModal} closeModal={handleCloseModal}>
-                <EditTask
-                    task={taskToUpdate}
-                    onTaskUpdated={handleUpdatedTask}
-                    isSubmitting={isSubmitting}
-                />
-            </Modal>
+            <EditTaskModal 
+                isOpen={isUpdatingModal} 
+                onClose={handleCloseModal} 
+                onSubmit={handleUpdatedTask} 
+                task={taskToUpdate} 
+                isSubmitting={isSubmitting} 
+            />
+            
 
         </div>
     );

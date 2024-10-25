@@ -47,7 +47,7 @@ export const Story = () => {
                     <StoryOwner ownerId={story.owner} status={story.status} points={story.points} />
                     <StoryDates created={story.created} started={story.started} finished={story.finished} />
                     <StoryAssignees assignedToIds={story.assignedTo} />
-                    <StoryTasks storyId={storyId} />
+                    <StoryTasks storyId={storyId}/>
                 </div>
             </div>
         </LayoutDefault>
