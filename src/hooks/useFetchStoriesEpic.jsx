@@ -7,22 +7,26 @@ export const useFetchStoriesEpic = (epicId) => {
         loading: true
     })
 
+    const fetchStoriesEpic = async () => {
+        setState((prevState) => ({...prevState, loading: true}) )
+        try {
+            const stories = await getStoriesEpic(epicId)
+            setState({
+                data: stories || [],
+                loading: false
+            })
+        } catch (error) {
+            console.log(error)
+            setState({
+                data: [],
+                loading: false
+            })
+        }
+    }
+
     useEffect(()=>{
-        getStoriesEpic(epicId)
-            .then(epics =>{
-                setState({
-                    data: epics,
-                    loading: false
-                })
-            })
-            .catch((err)=>{
-                console.log(err)
-                setState({
-                    data: [],
-                    loading: false
-                })
-            })
-    },[])
+        fetchStoriesEpic()
+    },[epicId])
     
-  return state;
+  return {...state, fetchStoriesEpic};
 }

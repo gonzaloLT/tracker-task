@@ -7,7 +7,7 @@ export const createStory = async (story) => {
             method: 'POST',
             headers:{
                 'Content-Type' : 'application/json',
-                'auth': localStorage.getItem(token)
+                'auth': localStorage.getItem('token')
             },
             body: JSON.stringify(story)
         })
@@ -22,5 +22,50 @@ export const createStory = async (story) => {
     } catch (error) {
         console.log('Error: ', error)
         return null;
+    }
+}
+
+//Actualizar historia
+export const updateStory = async (storyId, updateStory) => {
+    try {
+        const response = await fetch(`${API_URL}/stories/${storyId}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'auth': localStorage.getItem('token')
+            },
+            body: JSON.stringify(updateStory)
+        })
+
+        if (!response.ok) {
+            throw new Error(`Error al actualizar la historia con id: ${storyId}`)
+        }
+
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.log('Error: ', error)
+        return null;
+    }
+}   
+
+//Borrar tarea
+export const deleteStory = async (storyId)=> {
+    try {
+        const response = await fetch(`${API_URL}/stories/${storyId}`, {
+            method: 'DELETE',
+            headers: {
+                'auth': localStorage.getItem('token')
+            },
+        })
+
+        if (!response.ok) {
+            throw new Error(`Error al borrar la historia con id: ${storyId}`)
+        }
+
+        return true;
+    } catch (error) {
+        console.log('Error: ', error)
+        return false;
     }
 }

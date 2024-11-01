@@ -14,6 +14,7 @@ export const FormTask = ({ onTaskCreated, isSubmitting }) => {
     return (
         <div className={styles.formContainer}>
             <form onSubmit={handleSubmit(onSubmit)}>
+                
                 <div className={styles.formGroup}>
                     <label className={styles.label}>Nombre: </label>
                     <input

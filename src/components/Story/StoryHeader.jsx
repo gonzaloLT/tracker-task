@@ -4,7 +4,7 @@ import styles from './styles/storyHeader.module.css'
 export const StoryHeader = ({ onCreateStory, isCreating }) => {
     return (
         <div className={styles.storyHeader}>
-            <h3 className={styles.title}>Historias</h3>
+            <h2 className={styles.title}>Historias</h2>
             <button
                 className={styles.addStoryButton}
                 onClick={onCreateStory}

@@ -5,7 +5,6 @@ import { EpicInfo } from "../components/Epics/EpicInfo";
 import { StoriesList } from "../components/Story/StoriesList";
 import { LoadingMessage } from "../utils/LoadingMessage";
 import { useFetchEpicsById } from "../hooks/useFetchEpicsById";
-import { useFetchStoriesEpic } from "../hooks/useFetchStoriesEpic";
 import { IoArrowBack } from 'react-icons/io5';
 import styles from './styles/epic.module.css'
 
@@ -13,7 +12,6 @@ export const Epic = () => {
     const { epicId, projectId } = useParams();
     const navigate = useNavigate();
     const { data: epic, loading: loadingEpics } = useFetchEpicsById(epicId)
-    const { data: stories, loading: loadingStories } = useFetchStoriesEpic(epicId)
 
     return (
         <LayoutDefault>
@@ -28,8 +26,6 @@ export const Epic = () => {
                     <div className={styles.epicContainer}>
                         <EpicInfo epic={epic} />
                         <StoriesList
-                            stories={stories}
-                            loading={loadingStories}
                             epicId={epicId}
                             projectId={projectId}
                         />
